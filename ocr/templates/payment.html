@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+
+</head>
+
+<body class="bg-gray-100">
+
+    {% include "navbarTP.html" %}
+    
+    <div class="container mx-auto pt-10 pb-20 mt-10 mb-10 bg-white rounded-xl shadow-lg">
+        <h3 class="text-center font-semibold text-2xl font-sans  mt-10 mb-14">Pay Money</h3>
+        <div class="grid grid-cols-2 gap-5 ">
+            <!-- -------clos1--------->
+            <form action="/payment1/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div>
+                    <img src="/static/ocr/pic/QR.png" alt="" class="w-64 h-auto mx-auto my-auto pb-5">
+                    <h1 class="text-center pt-10 pb-5">เเนบสลิปการชำระเงิน</h1>
+                    <div class=" grid justify-center">
+                        <input name="slip"
+                            class=" w-96 mb-5 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                            id="slip" type="file">
+                    </div>
+                    <!-- <div>
+                        <p>ราคาใบสั่ง</p>
+                    </div> -->
+                    <div class="grid justify-items-center">
+                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" type="submit"
+                            class="w-40 bg-green-500 hover:bg-blue-600 text-white font-medium py-2  mt-5 rounded-lg focus:outline-none text-xl">
+                            ตกลง
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!---------- clos2 --------->
+            <div>
+                <div>
+                    <p >ราคาใบสั่ง {{ tf.price}}</p>
+                </div>
+                <!-- <object data="/media{{tf.filePath}}" type="application/pdf type attribute">
+                </object>
+                <!-- <object data="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210101201653/PDF.pdf" width="200"
+                   >
+                </object> -->
+
+                <!-- <img src="/static/ocr/pic/QR.png" alt="รูปใบสั่งจากเจ้าหน้าที่พนักงาน"
+                    class="w-full h-auto mx-auto my-auto pb-5"> -->
+            </div> 
+        </div>
+    </div>
+    <div id="popup-modal" tabindex="-1"
+        class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative w-full max-w-md max-h-full">
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <center>
+                    <div>
+                        <script
+                            src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                        <lottie-player src="https://lottie.host/f202a448-c9df-4139-8e3e-c57cc7226cc6/FSh5ieYtA4.json"
+                            background="##ffffff" speed="1" style="width: 300px; height: 300px" loop autoplay
+                            direction="1" mode="normal">
+                        </lottie-player>
+                    </div>
+                </center>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

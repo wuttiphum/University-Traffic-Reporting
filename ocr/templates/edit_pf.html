@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- เรียกใช้งาน Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+  <title>Edit Profile</title>
+</head>
+  {% include "navbarTP.html" %}
+
+<body class="bg-gray-100">
+  <div class="container mx-auto p-8 mt-8 bg-white rounded shadow-md">
+    <h1 class="text-2xl font-bold mb-4">Edit Profile</h1>
+    <form action="edit_pf_save" method="POST">
+      {% csrf_token %}
+      <div class="grid grid-cols-2 gap-4">
+        <div class="col-span-2 md:col-span-1">
+          <label class="block text-gray-700 font-bold mb-2" for="firstname">First Name:</label>
+          <input class="py-2 px-4 border rounded-lg w-full bg-gray-200" type="text" id="firstname" name="firstname"
+            value="{{ user.firstname }}">
+        </div>
+        <div class="col-span-2 md:col-span-1">
+          <label class="block text-gray-700 font-bold mb-2" for="lastname">Last Name:</label>
+          <input class="py-2 px-4 border rounded-lg w-full bg-gray-200" type="text" id="lastname" name="lastname"
+            value="{{ user.lastname }}">
+        </div>
+        <div class="col-span-2 md:col-span-1">
+          <label class="block text-gray-700 font-bold mb-2" for="age">Age:</label>
+          <input class="py-2 px-4 border rounded-lg w-full bg-gray-200" type="text" id="age" name="age"
+            value="{{ user.age }}">
+        </div>
+        <div class="col-span-2 md:col-span-1">
+          <label class="block text-gray-700 font-bold mb-2" for="gender">Gender:</label>
+          <select class="py-2 px-4 border rounded-lg w-full bg-gray-200" id="gender" name="gender"
+            value="{{ user.gender }}">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="col-span-2">
+          <label class="block text-gray-700 font-bold mb-2" for="email">Email:</label>
+          <input class="py-2 px-4 border rounded-lg w-full bg-gray-200" type="email" id="email" name="email"
+            value="{{ user.email}}">
+        </div>
+        <div class="col-span-2">
+          <label class="block text-gray-700 font-bold mb-2" for="tel">Tel:</label>
+          <input class="py-2 px-4 border rounded-lg w-full bg-gray-200" type="tel" id="tel" name="tel"
+            value="{{ user.tel  }}">
+        </div>
+        <div class="col-span-2">
+          <label class="block text-gray-700 font-bold mb-2" for="address">Address:</label>
+          <textarea class="py-2 px-4 border rounded-lg w-full h-20 bg-gray-200" id="address"
+            name="address">{{ user.address  }}</textarea>
+        </div>
+      </div>
+      <div class="mt-8">
+        <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+          Save Changes
+        </button>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>

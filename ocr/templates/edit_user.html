@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<style>
+    .bg-on{
+        background-color: #27374D;
+    }
+</style>
+
+<body class="bg-gray-100">
+    {% include "sidebar.html" %}
+    <div class="p-4 sm:ml-64">
+        <div class="p-4 border-4 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14 ">
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <caption
+                        class="p-5 text-lg font-semibold text-center text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+                        Edit User
+                    </caption>
+                    <thead class="text-xs text-white uppercase bg-on dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 ">
+                                ID User
+                            </th>
+                            <th scope="col" class="px-6 py-3 ">
+                                Picture
+                            </th>
+                            <th scope="col" class="px-6 py-3 ">
+                                Username
+                            </th>
+                            <th scope="col" class="px-6 py-3 ">
+                                first name
+                            </th>
+                            <th scope="col" class="px-6 py-3 ">
+                                Last name
+                            </th>
+                            <th scope="col" class="px-6 py-3 ">
+                                Role
+                            </th>
+                            <th scope="col" class="px-6 py-3 ">
+                                Gender
+                            </th>
+                            <th scope="col" class="px-6 py-3 ">
+                                Age
+                            </th>
+                            <th scope="col" class="px-6 py-3 ">
+                                Tel
+                            </th>
+                            <th scope="col" class="px-6 py-3 ">
+                                email
+                            </th>
+                            <th scope="col" class="px-6 py-3 ">
+                                Address
+                            </th>
+                            <th scope="col" class="px-6 py-3 ">
+                                Edit
+                            </th>
+                            <th scope="col" class="px-6 py-3 ">
+                                Delete
+                            </th> 
+                        </tr> 
+                    </thead>
+                    <tbody>
+                        {% for u in users %}
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            <td scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {{ u.id }}
+                            </td>
+                            <th scope="row" class="flex w-full h-full overflow-hidden justify-center items-center p-3 text-gray-900 whitespace-nowrap dark:text-white">
+                                <div class="w-[52px] h-[52px] flex items-center justify-center rou overflow-hidden">
+                                    <img class="object-cover h-full" src="{{ u.picture.url }}"
+                                        alt="Jese image">
+                                </div>
+                            </th>
+                            <td class="px-6 py-4">
+                                {{u.username}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{u.firstname}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{u.lastname}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{u.role }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{u.gender}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{u.age}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{u.tel}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{u.email}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{u.address}}
+                            </td>
+                            <!-- <td class="px-6 py-4">
+                                <img src="u.pic" alt="">
+                            </td> -->
+                            <td class="px-6 py-4 ">
+                                <a href="edit_user/edit/{{ u.id }}">
+                                    <button
+                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-4 ">Edit</button>
+                                </a>
+                            </td>
+                            <td class="px-6 py-4 ">
+                                <a href="edit_user/delete/{{ u.id }}">
+                                    <button
+                                        class="font-medium text-red-600 dark:text-red-500 hover:underline ">Delete</button>
+                                </a>
+                            </td> 
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- table  -->
+    <!-- <p class=" pt-8 text-4xl text-center">Deta User</p>
+    <div class="relative overflow-x-auto  sm:rounded-lg mx-8 mt-8">
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3 ">
+                        ID User
+                    </th>
+                    <th scope="col" class="px-6 py-3 ">
+                        Username
+                    </th>
+                    <th scope="col" class="px-6 py-3 ">
+                        first name
+                    </th>
+                    <th scope="col" class="px-6 py-3 ">
+                        Last name
+                    </th>
+                    <th scope="col" class="px-6 py-3 ">
+                        Gender
+                    </th>
+                    <th scope="col" class="px-6 py-3 ">
+                        Age
+                    </th>
+                    <th scope="col" class="px-6 py-3 ">
+                        Tel
+                    </th>
+                    <th scope="col" class="px-6 py-3 ">
+                        email
+                    </th>
+                    <th scope="col" class="px-6 py-3 ">
+                        Address
+                    </th>
+                    <th scope="col" class="px-6 py-3 ">
+                        Edit
+                    </th>
+                    <th scope="col" class="px-6 py-3 ">
+                        Delete
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in users %}
+                <tr
+                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{ u.id }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{u.username}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{u.firstname}}
+                    </td>
+
+                    <td class="px-6 py-4">
+                        {{u.lastname}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{u.gender}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{u.age}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{u.tel}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{u.email}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{u.address}}
+                    </td>
+                    <td class="px-6 py-4">
+                        <img src="u.pic" alt="">
+                    </td>
+                    <td class="px-6 py-4 ">
+                        <a href="edit_user/edit/{{ u.id }}">
+                            <button
+                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-4 ">Edit</button>
+                        </a>
+                    </td>
+                    <td class="px-6 py-4 ">
+                        <a href="edit_user/delete/{{ u.id }}">
+                            <button class="font-medium text-red-600 dark:text-red-500 hover:underline ">Delete</button>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+
+
+
+<!-- table
+ <div class="relative overflow-x-auto rounded-md px-8 pt-8">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Product name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Color
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Category
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Price
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Apple MacBook Pro 17"
+                </th>
+                <td class="px-6 py-4">
+                    Silver
+                </td>
+                <td class="px-6 py-4">
+                    Laptop
+                </td>
+                <td class="px-6 py-4">
+                    $2999
+                </td>
+                <td class="px-6 py-4">
+                    <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-4">Edit</button>
+                    <button class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
+                </td>
+            </tr>
+            <tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Microsoft Surface Pro
+                </th>
+                <td class="px-6 py-4">
+                    White
+                </td>
+                <td class="px-6 py-4">
+                    Laptop PC
+                </td>
+                <td class="px-6 py-4">
+                    $1999
+                </td>
+                <td class="px-6 py-4">
+                    <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-4">Edit</button>
+                    <button class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Magic Mouse 2
+                </th>
+                <td class="px-6 py-4">
+                    Black
+                </td>
+                <td class="px-6 py-4">
+                    Accessories
+                </td>
+                <td class="px-6 py-4">
+                    $99
+                </td>
+                <td class="px-6 py-4">
+                    <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-4">Edit</button>
+                    <button class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
+                </td>
+            </tr>
+            <tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    Google Pixel Phone
+                </th>
+                <td class="px-6 py-4">
+                    Gray
+                </td>
+                <td class="px-6 py-4">
+                    Phone
+                </td>
+                <td class="px-6 py-4">
+                    $799
+                </td>
+                <td class="px-6 py-4">
+                    <button class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-4">Edit</button>
+                    <button class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table> -->
+</body>

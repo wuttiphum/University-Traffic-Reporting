@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSD user student</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    {% if request.method == 'GET' %}
+    {% include "sidebar.html" %}
+    {% if users.stack < 4 %} <div class="p-4 sm:ml-64">
+        <div class="p-4 border-4 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14 ">
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <div class=" bg-white shadow-lg p-10 rounded-md">
+                    <form action="#" method="post">
+
+                        {% csrf_token %}
+
+                        เรียน <input type="text" id="user_name" name="user_name"
+                            class="w-64 p-2 border border-gray-300 rounded-md"
+                            value="{{users.firstname}} {{users.lastname}}" readonly><br>
+                        ประเภทรถ<input type="text" id="car_type" name="car_type"
+                            class="w-28 p-2 border border-gray-300 rounded-md" value="{{car_student.car_type}}"
+                            readonly> เเบรนด์
+                        <input type="text" id="brand" name="brand" class="w-28 p-2 border border-gray-300 rounded-md"
+                            value="{{car_student.brand}}" readonly required> ขนาดซีซี<input type="text" id="cc_type"
+                            name="cc_type" class="w-28 p-2 border border-gray-300 rounded-md"
+                            value="{{car_student.cc_type}}" readonly> สีรถ<input type="text" id="car_color"
+                            name="car_color" class="w-28 p-2 border border-gray-300 rounded-md"
+                            value="{{car_student.color}}" readonly> สีป้ายทะเบียน<input type="text"
+                            id="license_plate_color" name="license_plate_color"
+                            class="w-28 p-2 border border-gray-300 rounded-md"
+                            value="{{car_student.license_plate_color}}" readonly> ป้ายทะเบียน <input type="text"
+                            id="license_plate" name="license_plate" class="w-28 p-2 border border-gray-300 rounded-md"
+                            value="{{car_student.license_plate}}" required>
+                        <br>
+                        เป็นการเตือนครั้งที่ <input type="text" id="stack" name="stack"
+                            class="w-8 p-2 border border-gray-300 rounded-md" value="{{users.stack}}"> <br>
+                        ขอแจ้งให้ทราบว่าในวันที่ <input type="date" id="date" name="date"
+                            class="w-32 p-2 border border-gray-300 rounded-md" readonly>
+                        เวลา <input type="time" id="time" name="time" class="w-28 p-2 border border-gray-300 rounded-md"
+                            readonly> ณ <input type="text" id="location" name="location"
+                            class="w-72 p-2 border border-gray-300 rounded-md">
+                        คุณได้ละเมิดกฎหมายจราจรโดย
+                        <input type="text" id="offenses" name="offenses"
+                            class="w-40 p-2 border border-gray-300 rounded-md">
+                        ซึ่งเป็นการกระทำที่ผิดต่อการใช้ถนนและความปลอดภัยของผู้อื่น
+                        โปรดทราบว่าการละเมิดกฎหมายจราจรนี้อาจมีผลกระทบต่อคุณและผู้อื่นได้
+                        การละเมิดกฎหมายจราจรอาจทำให้คุณได้รับค่าปรับ สูญเสียสิทธิในการขับขี่
+                        หรือแม้กระทั่งมีการดำเนินการทางกฎหมายต่อคุณ
+                        ขอให้คุณใส่ใจและปฏิบัติตามกฎหมายจราจรอย่างเคร่งครัดต่อไป <br>
+                        กรุณาทราบให้ทราบถึงข้อความนี้และพิจารณาการปรับปรุงพฤติกรรมขับขี่ของคุณต่อไป<br><br>
+
+                        รูปหลักฐาน <br>
+                        <input type="hidden" value="{{rp_student.pic.url}}" name="image">
+                        <img src="{{rp_student.pic.url}}" class="max-w-[300px] h-auto" alt="">
+                        ขอบคุณมากครับ/ค่ะ<br><br>
+
+                        <input type="text" id="officer" name="officer"
+                            class="w-40 p-2 border border-gray-300 rounded-md"
+                            value="{{request.session.firstname}} {{request.session.lastname}}" readonly><br>
+                        เจ้าหน้าที่<br><br>
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600" name="submit">สร้าง PDF
+                        </button>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div>
+            {% else %}
+
+            <div class="p-4 sm:ml-64">
+                <div class="p-4 border-4 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14 ">
+                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                        <div class=" bg-white shadow-lg p-10 rounded-md">
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                ใบเตือนวินัยจราจร
+
+                                เรียน <input type="text" id="user_name" name="user_name"
+                                    class="w-64 p-2 border border-gray-300 rounded-md"
+                                    value="{{users.firstname}} {{users.lastname}}" readonly><br>
+                                เลขทะเบียนรถ <input type="text" id="license_plate" name="license_plate"
+                                    class="w-28 p-2 border border-gray-300 rounded-md"
+                                    value="{{car_student.license_plate}}" required><br>
+
+                                วันที่ <input type="date" id="date" name="date"
+                                    class="w-32 p-2 border border-gray-300 rounded-md" readonly><br>
+                                เนื่องจากนักศึกษาได้กระทำความผิดกฎจราจรของมหาวิทลัยเกิน 3 ครั้งเเล้ว
+
+                                ณ ที่นี้ข้าพเจ้าขอแจ้งให้ทราบว่า เมื่อวันที่ 17 มีนาคม 2567 เวลาประมาณ 09:30 น.
+                                ท่านได้ขับขี่รถยนต์ทะเบียน กข1234 ในเขตชัยบาดาล โดยมีการขับรถเกินความเร็วที่กำหนดไว้ 80
+                                กม./ชม. โดยขับรถด้วยความเร็วประมาณ 110 กม./ชม.
+                                การกระทำผิดดังกล่าวเป็นการละเมิดกฎหมายจราจร
+                                มีความเสี่ยงต่อการเกิดอุบัติเหตุและเป็นอันตรายต่อความปลอดภัยของผู้ใช้ถนนและสังคมได้
+                                ข้าพเจ้าขอเรียนเตือนให้ทราบและให้ระมัดระวังในการขับขี่ในอนาคต
+
+                                ขอบคุณมากครับ/ค่ะ<br><br>
+
+                                <input type="text" id="officer" name="officer"
+                                    class="w-40 p-2 border border-gray-300 rounded-md"
+                                    value="{{request.session.firstname}} {{request.session.lastname}}" readonly> <br>
+                                เจ้าหน้าที่ <br>
+
+                                <button
+                                    class="bg-gray-300 no-print hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
+                                    type="submit" name="submit" value="submit" id="submit"
+                                    >ส่งเมลล์</button>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endif %}
+        </div>
+
+        {% else %}
+        <form action="{{request.path}}" method="post" enctype="multipart/form-data">
+            <div id="elementToConvert" onclick="downloadPDF()">
+                <input type="hidden" name="user_name" value="{{user_name}}">
+                <input type="hidden" name="car_type" value="{{car_type}}">
+                <input type="hidden" name="brand" value="{{brand}}">
+                <input type="hidden" name="cc_type" value="{{cc_type}}">
+                <input type="hidden" name="car_color" value="{{car_color}}">
+                <input type="hidden" name="license_plate_color" value="{{license_plate_color}}">
+                <input type="hidden" name="license_plate" value="{{license_plate}}">
+                <input type="hidden" name="stack" value="{{stack}}">
+                <input type="hidden" name="date" value="{{date}}">
+                <input type="hidden" name="time" value="{{time}}">
+                <input type="hidden" name="location" value="{{location}}">
+                <input type="hidden" name="offenses" value="{{offenses}}">
+                <input type="hidden" name="image" value="{{image}}">
+
+
+                <!-- <input type="text" name="template" value="" id="rawHTML"> -->
+
+                <div class="container mx-auto pt-20 pb-20">
+                    <div class="border-2 border-black pr-10 pl-10 pt-16 pb-16">
+                        <img src="/static/ocr/pic/PSU.png" alt="" class="w-20 h-auto mx-auto my-auto pb-5">
+                        <div>
+                            <center><label class="font-bold text-xl text-left">ใบเตือนเจ้าพนักงานจราจร</label></center>
+                            <center><label class="font-bold text-xl text-left">Warning warn traffic Officer</label>
+                            </center>
+
+                            <div class="flex w-100 h-6 ">
+                                <div class="">เรียน : </div>
+                                <div class="border-b-2 border-dotted border-black w-[95%]  indent-5">{{user_name}}</div>
+                            </div>
+                            <div class="flex w-indent-50 h-6 ">
+                                <div class="">ประเภทรถ : </div>
+                                <div class="border-b-2 border-dotted border-black  w-[90%] indent-5">{{car_type}}</div>
+                            </div>
+                            <div class="flex">
+                                <div class="">เเบรนด์:</div>
+                                <div class="border-b-2 border-dotted border-black  w-[60vw] indent-5">{{brand}}</div>
+                            </div>
+                            <div class="flex">
+                                <div class="">ขนาดซีซี : </div>
+                                <div class="border-b-2 border-dotted border-black  w-[60vw] indent-5">{{cc_type}}</div>
+                            </div>
+                            <div class="flex">
+                                <div class="">สีรถ : </div>
+                                <div class="border-b-2 border-dotted border-black  w-[60vw] indent-5">{{car_color}}
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="">สีป้ายทะเบียน : </div>
+                                <div class="border-b-2 border-dotted border-black  w-[60vw] indent-5">
+                                    {{license_plate_color}}</div>
+                            </div>
+                            <div class="flex">
+                                <div class="">ป้ายทะเบียน : </div>
+                                <div class="border-b-2 border-dotted border-black  w-[60vw] indent-5">{{license_plate}}
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="">เป็นการเตือนครั้งที่ : </div>
+                                <div class="border-b-2 border-dotted border-black  w-[60vw] indent-5">{{stack}}</div>
+                            </div>
+                            <div class="flex">
+                                <div class="">ขอแจ้งให้ทราบว่าในวันที่ : </div>
+                                <div class="border-b-2 border-dotted border-black  w-[60vw] indent-5">{{date}}</div>
+                            </div>
+                            <div class="flex">
+                                <div class="">เวลา : </div>
+                                <div class="border-b-2 border-dotted border-black  w-[60vw] indent-5">{{time}}</div>
+                            </div>
+                            <div class="flex">
+                                <div class="">ณ : </div>
+                                <div class="border-b-2 border-dotted border-black  w-[60vw] indent-5">{{location}}</div>
+                            </div>
+                            <div class="flex">
+                                <div class="">คุณได้ละเมิดกฎหมายจราจรโดย : </div>
+                                <div class="border-b-2 border-dotted border-black  w-[60vw] indent-5">{{offenses}}</div>
+                            </div>
+                            <div class="flex">ซึ่งเป็นการกระทำที่ผิดต่อการใช้ถนนและความปลอดภัยของผู้อื่น
+                                โปรดทราบว่าการละเมิดกฎหมายจราจรนี้อาจมีผลกระทบต่อคุณและผู้อื่นได้
+                                การละเมิดกฎหมายจราจรอาจทำให้คุณได้รับค่าปรับ สูญเสียสิทธิในการขับขี่
+                                หรือแม้กระทั่งมีการดำเนินการทางกฎหมายต่อคุณ
+                                ขอให้คุณใส่ใจและปฏิบัติตามกฎหมายจราจรอย่างเคร่งครัดต่อไป <div
+                                    class="border-b-2 border-dotted border-black"></div>
+                            </div><br>
+                            กรุณาทราบให้ทราบถึงข้อความนี้และพิจารณาการปรับปรุงพฤ ติกรรมขับขี่ของคุณต่อไป<br><br>
+                            รูปหลักฐาน : <img src="{{image}}" class="max-w-[300px] h-auto"> <br><br><br>
+                            ขอบคุณมากครับ/ค่ะ <br><br>
+                            <div class="flex">
+                                <div class="border-b-2 border-dotted border-black  w-[5vw] indent-10">
+                                    {{request.session.firstname}} {{request.session.lastname}}</div>
+                            </div><br>
+                            เจ้าหน้าที่
+                        </div>
+                    </div>
+                </div>
+
+                {% csrf_token %}
+
+                <button
+                    class="bg-gray-300 no-print hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
+                    type="button" name="submit" value="convert" id="convertToPDF" onclick="convert()">convert
+                    PDF</button>
+
+                <div class="no-print ">
+                    <input type="file" name="filename">
+                    <button type="submit" name="submit" value="send">send</button>
+                </div>
+        </form>
+
+        <style>
+            @media print {
+                .no-print {
+                    display: none !important;
+                }
+            }
+        </style>
+
+        {% endif %}
+
+</body>
+
+<script>
+    function formatDate(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+
+        return `${year}-${month}-${day}`;
+    }
+
+    const now = Date.now();
+    const formattedDate = formatDate(new Date(now));
+    document.getElementById("date").value = formattedDate;
+
+    function formatTime(date) {
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        const seconds = String(date.getSeconds()).padStart(2, '0');
+
+        return `${hours}:${minutes}:${seconds}`;
+    }
+
+    const time = new Date();
+    const formattedTime = formatTime(time);
+
+    time.value = formattedTime;
+    document.getElementById("time").value = formattedTime;
+
+    function convert() {
+        // rawHTML.value = "<head><meta charset='UTF-8'></head><body>" + elementToConvert.outerHTML + "</body>";
+        // console.log(rawHTML.value);
+
+        print();
+    }
+
+</script>
+
+
+
+</html>

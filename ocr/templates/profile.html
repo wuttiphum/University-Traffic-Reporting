@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- เรียกใช้งาน Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+    <title>My Profile</title>
+</head>
+{% include "navbarTP.html" %}
+
+<body class="bg-gray-100">
+    <div class="container mx-auto p-8 m-8 bg-white rounded shadow-md">
+        <h1 class="text-2xl font-bold mb-4">My Profile</h1>
+        <div class="flex items-center mb-6">
+            <img class="w-16 h-16 rounded-full mr-4"src="{{ request.session.picture  }}" alt="Profile Picture">
+            <div>
+                <p class="text-xl font-bold">{{ user.firstname }}</p>
+                <p class="text-gray-600">{{ user.age }} years old</p>
+            </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="col-span-2 md:col-span-1">
+                <label class="block text-gray-700 font-bold mb-2" for="firstname">Firstname:</label>
+                <p class="py-2 px-4 border rounded-lg bg-gray-200">{{ user.firstname }}</p>
+            </div>
+            <div class="col-span-2 md:col-span-1">
+                <label class="block text-gray-700 font-bold mb-2" for="lastname">Lastname:</label>
+                <p class="py-2 px-4 border rounded-lg bg-gray-200">{{ user.lastname }}</p>
+            </div>
+            <div class="col-span-2 md:col-span-1">
+                <label class="block text-gray-700 font-bold mb-2" for="gender">Gender:</label>
+                <p class="py-2 px-4 border rounded-lg bg-gray-200">{{ user.gender }}</p>
+            </div>
+            <div class="col-span-2 md:col-span-1">
+                <label class="block text-gray-700 font-bold mb-2" for="age">Age:</label>
+                <p class="py-2 px-4 border rounded-lg bg-gray-200">{{ user.age }}</p>
+            </div>
+            <div class="col-span-2 md:col-span-1">
+                <label class="block text-gray-700 font-bold mb-2" for="email">Email:</label>
+                <p class="py-2 px-4 border rounded-lg bg-gray-200">{{ user.email }}</p>
+            </div>
+            <div class="col-span-2 md:col-span-1">
+                <label class="block text-gray-700 font-bold mb-2" for="tel">Tel:</label>
+                <p class="py-2 px-4 border rounded-lg bg-gray-200">{{ user.tel }}</p>
+            </div>
+            <div class="col-span-2 md:col-span-1">
+                <label class="block text-gray-700 font-bold mb-2" for="address">Address:</label>
+                <p class="py-2 px-4 border rounded-lg bg-gray-200">{{ user.address }}</p>
+            </div>
+        </div>
+        <center>
+            <div class="mt-8 ">
+                <a href="/edit_pf">
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                        Edit Profile
+                    </button>
+                </a>
+            </div>
+        </center>
+    </div>
+</body>
+
+</html>

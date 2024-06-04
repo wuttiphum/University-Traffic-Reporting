@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>send email</title>
+</head>
+
+<body class="bg-gray-100">
+    {% include "sidebar.html" %}
+    <div class="p-4 sm:ml-64">
+        <div class="p-4 border-4 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14 ">
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <div class=" bg-white shadow-lg p-10 rounded-md">
+                    <div class="max-w-md mx-auto bg-white rounded p-6">
+                        <h2 class="text-2xl font-semibold mb-4">Send Email</h2>
+                        <form method="post" action="{% url 'send_email' %}" class="space-y-4" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div>
+                                <label for="id_subject" class="block text-sm font-medium text-gray-600">Subject:</label>
+                                <input type="text"  name="subject" value="{{subject}}" id="id_subject" class="mt-1 p-2 w-full border rounded-md">
+                            </div>
+                            <div>
+                                <label for="id_message" class="block text-sm font-medium text-gray-600">Message:</label>
+                                <textarea name="message"   id="id_message"  class="mt-1 p-2 w-full border rounded-md">{{msg}}</textarea>
+                            </div>
+                            <div>
+                                <label for="id_recipient" class="block text-sm font-medium text-gray-600">Recipient:</label>
+                                <input type="email" name="recipient" id="id_recipient" value="{{ticket.user.email}}" class="mt-1 p-2 w-full border rounded-md">
+                            </div>
+                            <div>
+                                <label for="id_attachment" class="block text-sm font-medium text-gray-600">Attachment:</label>
+                                <input type="file" src="{{ticket.filePath.urls}}" name="attachment" id="id_attachment" class="mt-1 p-2 w-full border rounded-md">
+                            </div>
+                            <div>
+                                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md" ">Send Email</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

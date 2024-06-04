@@ -1,0 +1,80 @@
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
+
+<style>
+  .nav-link {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 0px;
+    position: relative;
+    opacity: 0.75;
+  }
+
+  .nav-link:hover {
+    opacity: 2;
+  }
+
+  .nav-link::before {
+    transition: 300ms;
+    height: 2.5px;
+    content: "";
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .nav-link-ltr::before {
+    width: 0%;
+    bottom: 10px;
+  }
+
+  .nav-link-ltr:hover::before {
+    width: 100%;
+  }
+  .bg-on-top{
+    background-color: #4A47A3;
+  }
+</style>
+<nav class=" bg-on-top drop-shadow-xl border-b-2  ">
+  <div class="flex  items-center justify-between  p-4 ml-7 mr-7 ">
+    <a href="/home" class="flex items-center">
+      <!-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 mr-3" alt="Flowbite Logo" /> -->
+      <span class=" text-xl font-semibold  text-white ">PSU TRAFFIC REPORT</span>
+    </a>
+    <div class="flex items-center md:order-2">
+      <button type="button"
+        class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+        id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
+        data-dropdown-placement="bottom">
+        <span class="sr-only ">Open user menu</span>
+        <img class="w-8 h-8 rounded-full" src="{{ request.session.picture }}" alt="user photo">
+      </button>
+
+      <!-- Dropdown menu -->
+      <div
+        class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
+        id="user-dropdown">
+        <div class="px-4 py-3">
+          <span class="block text-sm text-gray-900 dark:text-white font-sans">User id : {{ request.session.username }}</span>
+          <span class="block text-sm text-gray-900 dark:text-white font-sans">ชื่อ : {{ request.session.firstname }} {{ request.session.lastname }}</span>
+          <span class="block text-sm text-gray-900 dark:text-white font-sans">Email : {{ request.session.email }}</span>
+          <span class="block text-sm text-gray-900 dark:text-white font-sans">ประเภทผู้ใช้ : {{ request.session.role }}</span>
+        </div>
+        <ul class="py-2" aria-labelledby="user-menu-button">
+          <li>
+            <a href="/profile"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-black">Profile</a>
+          </li>
+          <li>
+            <a href="/login"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-black">Sign
+              out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <!-- <a href="/home" class="font-sans font-semibold text-white nav-link nav-link-ltr">Home</a> -->
+    </div>
+  </div>
+</nav>

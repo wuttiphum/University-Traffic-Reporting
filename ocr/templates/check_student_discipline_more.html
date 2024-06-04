@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+
+    {% include "sidebar.html" %}
+
+    <div class="p-4 sm:ml-64">
+        <div class="p-4 border-4 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14 ">
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <form action="{{request.path}}" method="post" class="grid grid-cols-2 gap-4">
+                    {% csrf_token %}
+                    <div>
+                        <dav>
+                            <div class="ml-20">
+                                <p class="pb-2 pl-0.5">ชื่อ</p>
+                                <input type="text" value="{{sd.user.firstname}} {{sd.user.lastname}} "
+                                    alt="รูปป้ายทะเบียนรถ" name="name"
+                                    class="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5 "
+                                    placeholder="">
+                            </div>
+                            <div class="ml-20">
+                                <p class="pb-2 pl-0.5">สถานที่บำเพ็ญประโยชน์</p>
+                                <input type="text" value="{{sd.location}}" alt="สถานที่บำเพ็ญประโยชน์" name="location"
+                                    class="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5 "
+                                    placeholder="">
+                            </div>
+                            <div class="ml-20">
+                                <p class="pb-2 pl-0.5">วันที่ส่งผล</p>
+                                <input type="text" value="{{sd.date}}" alt="วันที่ส่งผล" value="" name="date"
+                                    class="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5"
+                                    placeholder="">
+                            </div>
+                            <div class="ml-20">
+                                <p class="pb-2 pl-0.5">รูปหลักฐาน</p>
+                                <input type="image" src="{{sd.picture_evidence.url}}" alt="วันที่ส่งผล" value=""
+                                    name="picture_evidence"
+                                    class="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5"
+                                    placeholder="">
+                            </div>
+                            <div class="ml-20">
+                                <label for="message"
+                                    class="block  pl-1 pb-2 text-sm font-medium text-gray-900 dark:text-white">ข้อความ</label>
+                                <textarea id="message" rows="4" name="message"
+                                    class="p-2.5 w-96 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="สิ่งที่ทำ (เขียนมาคร่าวๆ)">{{sd.message}}</textarea>
+                            </div>
+                        </dav>
+                    </div>
+                    <!-- clos 2  -->
+                    <div>
+                        <div>
+                            <div class="flex justify-center  gap-5">
+                                <div>
+                                    <button name="confirm" value="confirm"
+                                        class="bg-green-400 hover:bg-blue-700 rounded-lg font-sans text-white w-40 p-2 mt-5 mb-10">ผ่าน</button>
+                                </div>
+                                <div>
+                                    <button name="confirm" value="confirmnot"
+                                        class="bg-green-400 hover:bg-blue-700 rounded-lg font-sans text-white w-40 p-2 mt-5 mb-10">ไม่ผ่าน</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Rport</title>
+</head>
+
+<style>
+    .bg-on{
+        background-color: #27374D;
+    }
+</style>
+
+<body class="bg-gray-100">
+
+    {% include "sidebar.html" %}
+
+    <div class="p-4 sm:ml-64">
+        <div class="p-4 border-4 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14 ">
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <table class="w-full text-base text-left text-gray-500 dark:text-gray-400">
+                    <caption
+                        class="p-5 text-lg font-medium  text-center text-gray-900 bg-white dark:text-white  dark:bg-gray-800">
+                        Check Report
+                    </caption>
+                    <thead class="text-xs text-white uppercase bg-gray-50 bg-on dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                ID
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Name
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Role
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Date
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                location
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Picture car
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Picture plat
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Action
+                            </th> 
+                            <!-- <th scope="col" class="px-6 py-3">
+                                officer
+                            </th>  -->
+                           
+                        </tr>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for rpu in report_user %}
+                            
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {{ rpu.id }}
+                            </th>
+                            <td class="px-6 py-4">
+                                {{ rpu.user }}
+                            </td>
+                            <td class="px-6 py-4"> 
+                                {{ rpu.user.role }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{rpu.date}}
+                            </td>
+                            <td class="px-6 py-4">
+                               {{ rpu.message }}
+                            </td>
+                            <td class="px-6 py-4">
+                                <img class="object-cover w-20 h-full" src="{{ rpu.pic.url }}"
+                                alt="Jese image">
+                            </td>
+                            <td class="px-6 py-4">
+                                <img class="object-cover w-20 h-full" src="{{ rpu.pic_plate.url }}"
+                                alt="Jese image">
+                            </td>
+                            <td class="px-6 py-4">
+                                <a href="/check_report_user_more/{{ rpu.id }}/" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Check</a>
+                            </td>
+                            <!-- <td class="px-6 py-4">
+                                {{ o.firstname }} {{ o.lastname }} 
+                             </td> -->
+                        </tr>
+                        
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="container mx-auto pt-10 pb-20">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Number
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Date
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Text
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                           Check
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            ID Number
+                        </th>
+                        <td class="px-6 py-4">
+                            Username
+                        </td>
+                        <td class="px-6 py-4">
+                            Date
+                        </td>
+                        <td class="px-6 py-4">
+                           Text
+                        </td>
+                        <td class="px-6 py-4">
+                           Check
+                        </td>
+                        <td class="px-6 py-4">
+                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Check</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div> -->
+
+</body>
+
+</html>

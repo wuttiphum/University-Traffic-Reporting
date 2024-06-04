@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% include "sidebar.html" %}
+    <div class="p-4 sm:ml-64">
+        <div class="p-4 border-4 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14 ">
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <form action="#" method="post">
+                            {% csrf_token %}
+                            <div class="ml-20">
+                                <p class="pb-2 pl-0.5">รูปสลิปเงิน
+                                </p>
+                                <input type="image" src="{{um.pic_plate.url}}" alt="รูปป้ายทะเบียนรถ"
+                                    class="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5 "
+                                    placeholder="">
+                            </div>
+                            <div class="ml-20">
+                                <p class="pb-2 pl-0.5">รูปใบสั่ง</p>
+                                <input type="image" src="{{um.pic.url}}" alt="รูปรถ"
+                                    class="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5 "
+                                    placeholder="">
+                            </div>
+                            <!-- <div class="ml-20">
+                                <p class="pb-2 pl-0.5">เลขป้ายทะเบียน</p>
+                                <input type="text" src="" alt="เลขป้ายทะเบียน" value="{{um.license_plate}}"
+                                    name="num_plate"
+                                    class="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5"
+                                    placeholder="เลขป้ายทะเบียน">
+                            </div>
+                            <div class="ml-20">
+                                <label for="message"
+                                    class="block  pl-1 pb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                                    message</label>
+                                <textarea id="message" rows="4" name="message"
+                                    class="p-2.5 w-96 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Write your thoughts here...">{{um.massage}}</textarea>
+                            </div> -->
+                        </form>
+                    </div>
+                    <!-- clos 2  -->
+                    <!-- <div>
+                        <form action="#" method="post">
+                            {% csrf_token %}
+                            <div class="ml-20">
+                                <p class="pb-2 pl-0.5">รูปป้ายทะเบียนรถ</p>
+                                <input type="image" src="{{us.pic_plate.url}}" alt="รูปป้ายทะเบียนรถ"
+                                    class="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5 "
+                                    placeholder="">
+                            </div>
+                            <div class="ml-20">
+                                <p class="pb-2 pl-0.5">รูปรถ</p>
+                                <input type="image" src="{{us.picture_car.url}}" alt="รูปป้ายทะเบียนรถ"
+                                    class="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5 "
+                                    placeholder="">
+                            </div>
+                            <div class="ml-20">
+                                <p class="pb-2 pl-0.5">เลขป้ายทะเบียน</p>
+                                <input type="text" src="" alt="เลขป้ายทะเบียน" value="{{us.license_plate}}"
+                                    name="num_plate"
+                                    class="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5"
+                                    placeholder="เลขป้ายทะเบียน">
+                            </div> -->
+                            <div class="flex justify-center gap-5">
+                                <div>
+                                    <button name="confirm"
+                                        class="bg-green-400 hover:bg-blue-700 rounded-lg font-sans text-white w-40 p-2 mt-5 mb-10">Confirm</button>
+                                </div>
+                                <div>
+                                    <button name="confirm"
+                                        class="bg-green-400 hover:bg-blue-700 rounded-lg font-sans text-white w-40 p-2 mt-5 mb-10">Confirm</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

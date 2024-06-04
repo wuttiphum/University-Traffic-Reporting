@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>home2</title>
+</head>
+
+<body class="bg-gray-100">
+  {% include "sidebar.html" %}
+  <style>
+    .sd {
+      box-shadow: 0 1px 3px -2px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+    }
+
+    .sd:hover {
+
+      box-shadow: 0 10px 20px rgba(0, 0, 0, .19), 0 6px 6px rgba(0, 0, 0, .22)
+    }
+  </style>
+  <div id="content" class="container mx-auto pt-10">
+    <h1 class="font-sans text-4xl text-center pt-8 ">OFFICER</h1>
+    <br>
+    <br>
+    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae tempora neque nobis quam. At repellat
+      reiciendis quisquam? Sint architecto, praesentium veniam provident repudiandae rem ex suscipit ab, velit eos
+      quidem.
+    </h1>
+    <br>
+    <br>
+    <div class="grid grid-cols-4 justify-items-center mt-5 mb-10">
+      <div class="text-center ">ตรวจสอบผลการรายงาน</div>
+      <div class="text-center">บริการด้านการเงิน</div>
+      <div class="text-center">ข้อมูลผู้ใช้</div>
+      <div class="text-center">ออกเเบบForm / E-MAIL</div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+      <!-- Column 1 -->
+      <div class="grid grid-rows-1 gap-4 md:grid-rows-3 md:grid-cols-1">
+        <a href="/payment">
+          <div
+            class="pt-10 pb-10 cursor-pointer bg-gray-200 rounded-lg hover:bg-gray-300 hover:text-white sd duration-150 hover:situation-150 flex items-center justify-center">
+            <div class="text-center pt-3">
+              <center>
+                <svg class="w-10 h-auto" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                  viewBox="0 0 16 20">
+                  <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z" />
+                  <path
+                    d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2Zm-2.359 10.707-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L7 12.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                </svg>
+              </center>
+              <label>ตรวจสอบผลการรายงาน</label>
+            </div>
+          </div>
+        </a>
+
+        <a href="#">
+          <div
+            class="pt-10 pb-10 cursor-pointer bg-gray-200 rounded-lg hover:bg-gray-300 hover:text-white sd duration-150 hover:situation-150 flex items-center justify-center">
+            <div class="text-center pt-3">
+              <center>
+                <svg class="w-10 h-auto" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                  viewBox="0 0 16 20">
+                  <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z" />
+                  <path
+                    d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2Zm-2.359 10.707-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L7 12.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                </svg>
+              </center>
+              <label>ตรวจสอบผลการกระทำความดี</label>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="grid grid-rows-1 gap-4 md:grid-rows-3 md:grid-cols-1">
+        <a href="check_pm">
+          <div
+            class="pt-10 pb-10 cursor-pointer bg-gray-200 rounded-lg hover:bg-gray-300 hover:text-white sd duration-150 hover:situation-150 flex items-center justify-center">
+            <div class="text-center pt-3">
+              <center>
+                <svg class="w-12 h-auto" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                  viewBox="0 0 20 20">
+                  <path
+                    d="M11.074 4 8.442.408A.95.95 0 0 0 7.014.254L2.926 4h8.148ZM9 13v-1a4 4 0 0 1 4-4h6V6a1 1 0 0 0-1-1H1a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h17a1 1 0 0 0 1-1v-2h-6a4 4 0 0 1-4-4Z" />
+                  <path
+                    d="M19 10h-6a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1Zm-4.5 3.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM12.62 4h2.78L12.539.41a1.086 1.086 0 1 0-1.7 1.352L12.62 4Z" />
+                </svg>
+              </center>
+              <label>ตรวจสอบการชำระเงิน</label>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="grid grid-rows-1 gap-4 md:grid-rows-3 md:grid-cols-1">
+        <a href="/edit_user">
+          <div
+            class="pt-10 pb-10 cursor-pointer bg-gray-200 rounded-lg hover:bg-gray-300 hover:text-white sd duration-150 hover:situation-150 flex items-center justify-center">
+            <div class="text-center pt-3">
+              <center>
+                <svg class="w-12 h-auto" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                  viewBox="0 0 20 18">
+                  <path
+                    d="M6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm-1.391 7.361.707-3.535a3 3 0 0 1 .82-1.533L7.929 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h4.259a2.975 2.975 0 0 1-.15-1.639ZM8.05 17.95a1 1 0 0 1-.981-1.2l.708-3.536a1 1 0 0 1 .274-.511l6.363-6.364a3.007 3.007 0 0 1 4.243 0 3.007 3.007 0 0 1 0 4.243l-6.365 6.363a1 1 0 0 1-.511.274l-3.536.708a1.07 1.07 0 0 1-.195.023Z" />
+                </svg>
+              </center>
+              <label>ข้อมูลผู้ใช้</label>
+            </div>
+          </div>
+        </a>
+
+        <a href="/officer">
+          <div
+            class="pt-10 pb-10 cursor-pointer bg-gray-200 rounded-lg hover:bg-gray-300 hover:text-white sd duration-150 hover:situation-150 flex items-center justify-center">
+            <div class="text-center pt-3">
+              <center>
+                <svg class="w-12 h-auto" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                  viewBox="0 0 20 18">
+                  <path
+                    d="M6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm-1.391 7.361.707-3.535a3 3 0 0 1 .82-1.533L7.929 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h4.259a2.975 2.975 0 0 1-.15-1.639ZM8.05 17.95a1 1 0 0 1-.981-1.2l.708-3.536a1 1 0 0 1 .274-.511l6.363-6.364a3.007 3.007 0 0 1 4.243 0 3.007 3.007 0 0 1 0 4.243l-6.365 6.363a1 1 0 0 1-.511.274l-3.536.708a1.07 1.07 0 0 1-.195.023Z" />
+                </svg>
+              </center>
+              <label>ข้อมูลเจ้าหน้าที่</label>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Column 4 -->
+      <div class="grid grid-rows-1 gap-4 md:grid-rows-3 md:grid-cols-1">
+        <a href="/payment">
+          <div
+            class="pt-8 pb-10 cursor-pointer bg-gray-200 rounded-lg hover:bg-gray-300 hover:text-white sd duration-150 hover:situation-150 flex items-center justify-center">
+            <div class="text-center pt-3">
+              <center>
+                <svg class="w-10 h-auto" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 16 20">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M1 18a.969.969 0 0 0 .933 1h12.134A.97.97 0 0 0 15 18M1 7V5.828a2 2 0 0 1 .586-1.414l2.828-2.828A2 2 0 0 1 5.828 1h8.239A.97.97 0 0 1 15 2v5M6 1v4a1 1 0 0 1-1 1H1m0 9v-5h1.5a1.5 1.5 0 1 1 0 3H1m12 2v-5h2m-2 3h2m-8-3v5h1.375A1.626 1.626 0 0 0 10 13.375v-1.75A1.626 1.626 0 0 0 8.375 10H7Z" />
+                </svg>
+              </center>
+              <label>ออกใบเเจ้งเตือน</label>
+            </div>
+          </div>
+        </a>
+
+        <a href="/pdf_outsider">
+          <div
+            class="pt-8 pb-10 cursor-pointer bg-gray-200 rounded-lg hover:bg-gray-300 hover:text-white sd duration-150 hover:situation-150 flex items-center justify-center">
+            <div class="text-center pt-3">
+              <center>
+                <svg class="w-10 h-auto" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 16 20">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M1 18a.969.969 0 0 0 .933 1h12.134A.97.97 0 0 0 15 18M1 7V5.828a2 2 0 0 1 .586-1.414l2.828-2.828A2 2 0 0 1 5.828 1h8.239A.97.97 0 0 1 15 2v5M6 1v4a1 1 0 0 1-1 1H1m0 9v-5h1.5a1.5 1.5 0 1 1 0 3H1m12 2v-5h2m-2 3h2m-8-3v5h1.375A1.626 1.626 0 0 0 10 13.375v-1.75A1.626 1.626 0 0 0 8.375 10H7Z" />
+                </svg>
+              </center>
+              <label>ออกใบสั่ง</label>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+
+
+    <!-- <h1 class=" font-mono text-4xl font-bold   text-center pt-8">OFFICER</h1>
+  <div class="flex justify-around gap-20 pt-10">
+    <div>
+      <div class="bg-blue-500 shadow-md rounded-lg text-center  p-2 pr-5 pl-5">
+        การรายงานปัญหา
+      </div>
+      <div class="text-center pt-5">
+        <a href="/report" class="hover:underline underline-offset-1 hover:text-gray-500">ตรวจสอบปัญหา</a>
+      </div>
+    </div>
+    <div>
+      <div class="bg-blue-500 shadow-md rounded-lg text-center  p-2 pr-5 pl-5">
+        บริการด้านการเงิน
+      </div>
+      <div class="text-center pt-5">
+        <a href="/payment"
+          class="hover:underline  hover:text-gray-500 ">ชำระเงิน</a>
+      </div>
+      <div class="text-center pt-3">
+        <a href="#"
+          class="hover:underline  hover:text-gray-500 ">ตรวจสอบการชำระเงิน</a>
+      </div>
+    </div>
+    <div>
+      <div class="bg-blue-500 shadow-md rounded-lg text-center  p-2 pr-5 pl-5">
+        ข้อมูลผู้ใช้
+      </div>
+      <div class="text-center pt-5">
+        <a href="/edit_user"
+          class="hover:underline  hover:text-gray-500 ">ข้อมูลผู้ใช้</a>
+      </div>
+      <div class="text-center pt-3">
+        <a href="/officer"
+          class="hover:underline  hover:text-gray-500 ">ข้อมูลเข้าหน้าที่</a>
+      </div>
+    </div>
+    <div>
+      <div class="bg-blue-500 shadow-md rounded-lg text-center  p-2 pr-5 pl-5">
+        FROM
+      </div>
+      <div class="text-center pt-5">
+        <a href="#" class="hover:underline  hover:text-gray-500 ">ออก From
+          เเจ้งเตือน</a>
+      </div>
+      <div class="text-center pt-3">
+        <a href="#" class="hover:underline  hover:text-gray-500 ">From ใบสั่ง</a>
+      </div>
+    </div>
+  </div> -->
+</body>
+
+</html>

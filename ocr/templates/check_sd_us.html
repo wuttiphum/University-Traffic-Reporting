@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Student Discipline </title>
+</head>
+
+<body class="bg-gray-50">
+    {% include "navbarTP.html" %}
+    <h1 class=" font-bold text-center pt-10">Check Student Discipline </h1>
+    <div class="container mx-auto pt-10 pb-20">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Number
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Date
+                        </th>
+                        <!-- <th scope="col" class="px-6 py-3">
+                            Text
+                        </th> -->
+                        <th scope="col" class="px-6 py-3">
+                            Status
+                        </th>
+                        <!-- <th scope="col" class="px-6 py-3">
+                            Action
+                        </th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in sd %}
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ s.id }}
+                        </th>
+                        <td class="px-6 py-4">
+                            {{ s.user }}
+                        </td>
+                        <td class="px-6 py-4">
+                           {{s.date }}
+                        </td>
+                        <td class="px-6 py-4">
+                           {{ s.status }}
+                        </td>
+                        <!-- <td class="px-6 py-4">
+                           Check
+                        </td> -->
+                        <!-- <td class="px-6 py-4">
+                            <div >
+                                <label class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Payment made
+                                </label>
+                            </div>
+                        </td> -->
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>
